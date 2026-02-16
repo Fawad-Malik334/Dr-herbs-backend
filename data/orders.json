@@ -1,0 +1,29 @@
+[
+  {
+    "customer_name": "test",
+    "customer_email": "dsfdsf@gmail.com",
+    "customer_phone": "3434324",
+    "shipping_address": "sdfdsf",
+    "city": "dfasd",
+    "postal_code": "234",
+    "notes": "fsadfsdf",
+    "payment_method": "cod",
+    "items": [
+      {
+        "id": "1771168277504",
+        "product_id": null,
+        "name": "mlaik ",
+        "price": 23,
+        "quantity": 4,
+        "image_url": ""
+      }
+    ],
+    "subtotal": 92,
+    "shipping_cost": 0,
+    "total": 92,
+    "status": "confirmed",
+    "id": "1771169761973",
+    "created_date": "2026-02-15T15:36:01.974Z",
+    "updated_date": "2026-02-16T07:31:48.134Z"
+  }
+]
