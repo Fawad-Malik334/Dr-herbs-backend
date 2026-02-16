@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import { errorHandler } from './middleware/errorHandler.js';
 import { notFound } from './middleware/notFound.js';
 import { seedAdminIfNeeded } from './seed/seedAdmin.js';
-import { corsOrigin } from './lib/config.js';
+import { corsOrigins } from './lib/config.js';
 
 import adminRoutes from './routes/admin.routes.js';
 import productRoutes from './routes/product.routes.js';
@@ -18,7 +18,12 @@ app.use(express.json({ limit: '2mb' }));
 app.use(morgan('dev'));
 app.use(
   cors({
-    origin: corsOrigin,
+    origin: (origin, cb) => {
+      // Allow non-browser tools (no Origin header) and same-origin requests.
+      if (!origin) return cb(null, true);
+      if (corsOrigins.includes(origin)) return cb(null, true);
+      return cb(new Error(`CORS blocked for origin: ${origin}`));
+    },
     credentials: true,
   })
 );
