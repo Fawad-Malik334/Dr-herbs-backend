@@ -21,8 +21,10 @@ app.use(
     origin: (origin, cb) => {
       // Allow non-browser tools (no Origin header) and same-origin requests.
       if (!origin) return cb(null, true);
+      if (origin === 'http://localhost:5173') return cb(null, true);
       if (corsOrigins.includes(origin)) return cb(null, true);
-      return cb(new Error(`CORS blocked for origin: ${origin}`));
+      // Do not throw an error here; throwing causes Express to return 500 on preflight.
+      return cb(null, false);
     },
     credentials: true,
   })
