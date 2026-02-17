@@ -15,6 +15,7 @@ const createOrderSchema = z.object({
   customer_name: z.string().min(1),
   customer_email: z.string().optional().default(''),
   customer_phone: z.string().min(1),
+  ad_code: z.string().optional().default(''),
   shipping_address: z.string().min(1),
   city: z.string().optional().default(''),
   postal_code: z.string().optional().default(''),

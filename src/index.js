@@ -11,6 +11,8 @@ import { corsOrigins } from './lib/config.js';
 import adminRoutes from './routes/admin.routes.js';
 import productRoutes from './routes/product.routes.js';
 import orderRoutes from './routes/order.routes.js';
+import marketingRoutes from './routes/marketing.routes.js';
+import reviewRoutes from './routes/review.routes.js';
 
 const app = express();
 
@@ -37,6 +39,8 @@ app.get('/health', (_req, res) => {
 app.use('/api/admin', adminRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/marketing', marketingRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
